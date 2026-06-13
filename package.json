@@ -1,0 +1,15 @@
+{
+  "name": "meditracker",
+  "version": "1.0.0",
+  "description": "MediTracker & Reminder Web App - MERN Stack",
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm start --prefix frontend",
+    "start:backend": "npm start --prefix backend",
+    "setup": "npm run install:all && echo '✅ All dependencies installed! Copy .env.example to .env in backend folder and configure it.'"
+  },
+  "keywords": ["mern", "meditracker", "health", "medicine", "reminder"],
+  "author": "MediTracker",
+  "license": "MIT"
+}
