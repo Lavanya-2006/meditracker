@@ -19,6 +19,7 @@ const DoctorPatients = () => {
   const [viewPatient, setViewPatient] = useState(null);
   const [patientMeds, setPatientMeds] = useState([]);
 
+// eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchPatients = useCallback(async (page = 1, searchVal = search) => {
     setLoading(true);
     try {
@@ -29,7 +30,9 @@ const DoctorPatients = () => {
     finally { setLoading(false); }
   }, [search]);
 
-  useEffect(() => { fetchPatients(1, ''); }, []);
+  useEffect(() => { 
+  fetchPatients(1, ''); 
+}, [fetchPatients]);
 
   const handleSearch = (e) => {
     const val = e.target.value;

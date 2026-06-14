@@ -51,13 +51,22 @@ const DoctorMedicines = () => {
     finally { setLoading(false); }
   }, [search, filterPatient]);
 
-  useEffect(() => {
-    fetchMedicines();
-    api.get('/doctors/patients', { params: { limit: 100 } })
-      .then(res => setPatients(res.data.patients))
-      .catch(() => {});
-  }, []);
+ 
+// eslint-disable-next-line react-hooks/exhaustive-deps
 
+useEffect(() => {
+  fetchMedicines();
+  api.get('/doctors/patients', { params: { limit: 100 } })
+    .then(res => setPatients(res.data.patients))
+    .catch(() => {});
+}, [fetchMedicines]);
+
+// useEffect(() => {
+//   fetchMedicines();
+//   api.get('/doctors/patients', { params: { limit: 100 } })
+//     .then(res => setPatients(res.data.patients))
+//     .catch(() => {});
+// }, []);
   const openAdd = () => { setForm(defaultForm); setFormErrors({}); setModal({ open: true, mode: 'add', medicine: null }); };
   const openEdit = (med) => {
     setForm({
