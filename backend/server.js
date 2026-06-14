@@ -41,7 +41,12 @@ const authLimiter = rateLimit({
 
 // CORS
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  // origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: [
+    "http://localhost:3000",
+    "https://meditracker-nxb32dblo-lavanyas-projects-c2bfdb12.vercel.app",
+    process.env.CLIENT_URL
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
