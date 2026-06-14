@@ -13,9 +13,12 @@ const PatientMedicines = () => {
   const [pagination, setPagination] = useState({ page: 1, pages: 1, total: 0 });
   const [viewMed, setViewMed] = useState(null);
 // eslint-disable-next-line react-hooks/exhaustive-deps
+
 useEffect(() => {
   fetchMedicines();
 }, []);
+
+
   const fetchMedicines = useCallback(async (page = 1, s = search, active = filterActive) => {
     setLoading(true);
     try {

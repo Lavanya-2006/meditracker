@@ -42,7 +42,8 @@ const DoctorPatients = () => {
     if (!patientEmail.trim()) return;
     setAddLoading(true);
     try {
-      const res = await api.post('/doctors/patients/add', { patientEmail });
+      // const res = await api.post('/doctors/patients/add', { patientEmail });
+     await api.post('/doctors/patients/add', { patientEmail });
       toast.success('Patient added successfully!');
       setAddModal(false);
       setPatientEmail('');
