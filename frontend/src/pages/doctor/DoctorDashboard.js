@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import api from '../../services/api';
-import { getInitials, getFrequencyLabel, getDosageLabel, timeAgo, formatDate } from '../../utils/helpers';
+import { getInitials, getFrequencyLabel, getDosageLabel, timeAgo } from '../../utils/helpers';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 const DoctorDashboard = () => {

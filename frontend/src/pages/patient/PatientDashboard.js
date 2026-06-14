@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import api from '../../services/api';
 import { useAuth } from '../../contexts/AuthContext';
 import toast from 'react-hot-toast';
-import { getFrequencyLabel, getDosageLabel, getAdherenceColor, formatDate } from '../../utils/helpers';
+import { getFrequencyLabel, getDosageLabel, getAdherenceColor } from '../../utils/helpers';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 const PatientDashboard = () => {

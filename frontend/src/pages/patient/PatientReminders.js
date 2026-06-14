@@ -5,7 +5,7 @@ import Modal from '../../components/common/Modal';
 import ConfirmDialog from '../../components/common/ConfirmDialog';
 import Pagination from '../../components/common/Pagination';
 import { reminderService, requestNotificationPermission, showBrowserNotification, playAlarmSound } from '../../services/reminderService';
-import { friendlyDate, formatDate } from '../../utils/helpers';
+import { friendlyDate } from '../../utils/helpers';
 
 const defaultForm = {
   medicineId: '', title: '', scheduledTime: '', repeatType: 'none',
