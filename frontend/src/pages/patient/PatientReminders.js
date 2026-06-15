@@ -81,21 +81,45 @@ const PatientReminders = () => {
     else toast.error('Notification permission denied');
   };
 
+  // const openAdd = () => {
+  //   const defaultTime = new Date();
+  //   defaultTime.setMinutes(defaultTime.getMinutes() + 30);
+  //   setForm({
+  //     ...defaultForm,
+  //     scheduledTime: defaultTime.toISOString().slice(0, 16)
+  //   });
+  //   setModal({ open: true, mode: 'add', reminder: null });
+  // };
+
   const openAdd = () => {
-    const defaultTime = new Date();
-    defaultTime.setMinutes(defaultTime.getMinutes() + 30);
-    setForm({
-      ...defaultForm,
-      scheduledTime: defaultTime.toISOString().slice(0, 16)
-    });
-    setModal({ open: true, mode: 'add', reminder: null });
-  };
+  const now = new Date();
+  now.setMinutes(now.getMinutes() + 30);
+
+  const localDateTime =
+    new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+      .toISOString()
+      .slice(0, 16);
+
+  setForm({
+    ...defaultForm,
+    scheduledTime: localDateTime
+  });
+
+  setModal({ open: true, mode: 'add', reminder: null });
+};
 
   const openEdit = (r) => {
     setForm({
       medicineId: r.medicine?._id || '',
       title: r.title,
-      scheduledTime: new Date(r.scheduledTime).toISOString().slice(0, 16),
+      // scheduledTime: new Date(r.scheduledTime).toISOString().slice(0, 16),
+      scheduledTime:
+  new Date(
+    new Date(r.scheduledTime).getTime() -
+    new Date(r.scheduledTime).getTimezoneOffset() * 60000
+  )
+    .toISOString()
+    .slice(0, 16),
       repeatType: r.repeatType || 'none',
       repeatDays: r.repeatDays || [],
       soundEnabled: r.soundEnabled !== false,
