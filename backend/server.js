@@ -50,17 +50,23 @@ const authLimiter = rateLimit({
 //   allowedHeaders: ['Content-Type', 'Authorization']
 // }));
 
+// app.use(cors({
+//   origin: [
+//     'http://localhost:3000',
+//     'https://meditracker-ko40qaa0d-lavanyas-projects-c2bfdb12.vercel.app',
+//     'https://meditracker-git-main-lavanyas-projects-c2bfdb12.vercel.app'
+//   ],
+//   credentials: true,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://meditracker-ko40qaa0d-lavanyas-projects-c2bfdb12.vercel.app',
-    'https://meditracker-git-main-lavanyas-projects-c2bfdb12.vercel.app'
+    'https://meditracker-seven.vercel.app'
   ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  credentials: true
 }));
-
 // Body parser
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
